@@ -1,7 +1,7 @@
-package my.home.package01;
+package my.home.package04;
 
 public class Main {
     public static void main(String[] args) {
-
+        
     }
 }
