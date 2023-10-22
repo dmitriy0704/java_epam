@@ -5,10 +5,6 @@ public class Main {
 
      //Циклы:
 
-
-
-
-
     }
 
     public static int getRole(String role) throws IllegalAccessException {
