@@ -1,5 +1,7 @@
 package my.home.package08;
 
+import java.util.StringJoiner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -30,6 +32,13 @@ public class Main {
         //substring()
         System.out.println(str1.substring(1,3));
         System.out.println(str1.replace("s", "S"));
+
+
+        //StringJoiner
+        System.out.println("StringJoiner:");
+        StringJoiner joiner = new StringJoiner(":","<<",">>");
+        String result = joiner.add("blanc").add("range").add("blanc").toString();
+        System.out.println(result);
 
     }
 }
