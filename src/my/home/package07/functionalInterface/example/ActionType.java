@@ -1,4 +1,4 @@
-package my.home.package06.functionalInterface.example;
+package my.home.package07.functionalInterface.example;
 
 public class ActionType {
     private double x;

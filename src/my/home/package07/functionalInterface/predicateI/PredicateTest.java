@@ -1,4 +1,4 @@
-package my.home.package06;
+package my.home.package07.functionalInterface.predicateI;
 
 import java.util.Arrays;
 import java.util.function.BiPredicate;
@@ -6,8 +6,13 @@ import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class Main {
-    public static void main(String[] args) {
+public class PredicateTest {
+    public void test() {
+//        Predicate<String> predicateStr1 = s -> s.length() > 4;
+//        return predicateStr1.test("test string");
+
+//        Predicate<Integer> predicateTest = i -> i > 5;
+//        System.out.println(predicateTest.test(4));
 
         String[] arrString = {"as", "a", "the", "d", "on", "end", "and"};
         int[] arrInteger = {1, 2, 3, 4, 5};
