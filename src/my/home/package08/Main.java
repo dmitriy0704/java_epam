@@ -1,44 +1,28 @@
 package my.home.package08;
 
-import java.util.StringJoiner;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
-        /* Основные классы:
-         * String
-         * StringBuilder
-         * StringBuffer
-         *
-         * Классы для форматирования:
-         * Formatter
-         * Matcher
-         * Pattern
-         * StringJoiner
-         *
-         * */
+        String encrypted = "Pass_1";
+        MessageDigest messageDigest = null;
+        byte[] bytesEncoded = null;
 
-        // ====== String ====== //
-
-        String str1 = "Test string";
-        String str2 = "Test string";
-
-        // equals():
-        System.out.println(str1.equals(str2));
-        // intern():
-        System.out.println(str1 == str2.intern());
-        // compare():
-        System.out.println(str1.compareTo(str2));
-        //substring()
-        System.out.println(str1.substring(1,3));
-        System.out.println(str1.replace("s", "S"));
-
-
-        //StringJoiner
-        System.out.println("StringJoiner:");
-        StringJoiner joiner = new StringJoiner(":","<<",">>");
-        String result = joiner.add("blanc").add("range").add("blanc").toString();
-        System.out.println(result);
+        try {
+            messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update(encrypted.getBytes(StandardCharsets.UTF_8));
+            bytesEncoded = messageDigest.digest();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        BigInteger bigInt = new BigInteger(1, bytesEncoded);
+        String resHex = bigInt.toString();
+        System.out.println(resHex);
 
     }
 }
