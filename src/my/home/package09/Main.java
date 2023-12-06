@@ -6,18 +6,18 @@ import java.util.Locale;
 
 public class Main {
     public static void main(String[] args) {
-        double i = parseFromFrance("ab");
-        System.out.println(i);
+        try {
+            double i = parseFromFrance("ab");
+            System.out.println(i);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage())  ;
+        }
     }
 
-    public static double parseFromFrance(String numString) {
+    public static double parseFromFrance(String numString) throws ParseException {
         NumberFormat format = NumberFormat.getInstance(Locale.FRENCH);
         double numFrance = 0;
-        try {
-            numFrance = format.parse(numString).doubleValue();
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+        numFrance = format.parse(numString).doubleValue();
         return numFrance;
     }
 }
