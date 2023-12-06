@@ -1,4 +1,4 @@
-package my.home.package6;
+package my.home.package06;
 
 public interface AccountManager {
     double depositInCash(int accountId, int amount);

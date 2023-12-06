@@ -1,4 +1,4 @@
-package my.home.package6;
+package my.home.package06;
 
 import java.util.function.Function;
 

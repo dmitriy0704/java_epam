@@ -1,4 +1,4 @@
-package my.home.package6;
+package my.home.package06;
 
 public class AccountBaseActionImplImpl implements AccountBaseAction {
     @Override
