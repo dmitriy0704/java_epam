@@ -10,7 +10,7 @@ public class Main {
             double i = parseFromFrance("ab");
             System.out.println(i);
         } catch (ParseException e) {
-            System.out.println(e.getMessage())  ;
+            System.out.println(e.getMessage());
         }
     }
 
@@ -19,5 +19,12 @@ public class Main {
         double numFrance = 0;
         numFrance = format.parse(numString).doubleValue();
         return numFrance;
+    }
+
+    public static void test() {
+        int size = 5;
+        assert (size > 0) : "Incorrect size";
+
+
     }
 }
