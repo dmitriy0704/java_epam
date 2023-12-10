@@ -7,10 +7,20 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        String pathInput = "/Users/dmitriyfolomkin/Devs/code/java/java_epam/resource/fileInput.txt";
-        String pathOutput = "/Users/dmitriyfolomkin/Devs/code/java/java_epam/resource/fileOutput.txt";
-        fileInput(pathInput);
+        String pathInput = "/home/devs/code/java/java_epam/resource/fileInput.txt";
+        String pathOutput = "/home/devs/code/java/java_epam/resource/fileOutput.txt";
+//        fileInput(pathInput);
         // copyFile(pathInput, pathOutput);
+
+        try (FileOutputStream output = new FileOutputStream(pathOutput, true)) {
+            output.write(48);
+            byte[] value = {65, 67, 100};
+            output.write(value);
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
     }
 
     public static void fileInput(String path) throws IOException {
