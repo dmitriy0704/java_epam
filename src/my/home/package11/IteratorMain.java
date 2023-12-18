@@ -3,12 +3,15 @@ package my.home.package11;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class IteratorMain {
     public static void main(String[] args) {
 
         final int controlAmount = 20;
         final int discountPercent = 10;
+
+        boolean showExample = false;
 
         List<Order> orders = new ArrayList<Order>() {
             {
@@ -26,10 +29,14 @@ public class IteratorMain {
         //Перебор элементов:
         while (iterator.hasNext()) {
             Order order = iterator.next();
-//            System.out.println(order);
+            if (showExample) {
+                System.out.println(order);
+            }
         }
         // или
-//        orders.forEach(System.out::println);
+        if (showExample) {
+            orders.forEach(System.out::println);
+        }
 
         // Поиск, удаление, изменение элементов списка. Классический способ:
         while (iterator.hasNext()) {
@@ -40,15 +47,50 @@ public class IteratorMain {
             }
             current.setAmount(current.getAmount() * (100 - discountPercent) / 100.0);
         }
-//        System.out.println(orders);
+        if (showExample) {
+            System.out.println(orders);
+        }
 
         // Поиск, удаление, изменение элементов списка. Функциональные интерфейсы:
         orders.removeIf(o -> o.getAmount() <= controlAmount);
         orders.forEach(o -> o.setAmount(o.getAmount() * (100 - controlAmount) / 100.0));
         orders.forEach(System.out::println);
 
+        // ====== ListIterator - навигация по списку ===== //
+        // E previous(), int previousIndex(), boolean hasPrevious()
 
-        // ====== ListIterator ===== //
+        // === Stream API === //
 
+        List<Order> orderList = orders.stream()
+                .filter(o -> o.getAmount() <= controlAmount)
+                .map(o -> {
+                            o.setAmount(o.getAmount() * (100 - discountPercent) / 100.0);
+                            return o;
+                        }
+                ).collect(Collectors.toList());
+
+        // filter():
+        List<String> strings = List.of("as a the d on and".split("\\s+"));
+        strings.stream()
+                .filter(s -> s.length() < 2)
+                .forEach(s -> System.out.print(s + " "));
+
+        // map():
+        strings.stream()
+                .map(String::length)
+                .forEach(s -> System.out.print(s + " "));
+
+        strings.stream()
+                .map(String::toUpperCase)
+                .forEach(s -> System.out.print(s + " "));
+
+        // sorted():
+        strings.stream()
+                .sorted()
+                .forEach(s -> System.out.print(s + " "));
+
+        strings.stream()
+                .sorted((s1, s2) -> s1.length() - s2.length())
+                .forEach(s -> System.out.print(s + " "));
     }
 }
