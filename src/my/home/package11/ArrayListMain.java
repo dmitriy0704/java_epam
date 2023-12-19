@@ -30,11 +30,16 @@ public class ArrayListMain {
         list.add(null);
         list.add(50);
         list.add(77);
-
         System.out.println(list); //[5, 7, 42, null, 50, 77]
-
-        list.add(5,87);
+        list.add(5, 87);
         System.out.println(list); //[5, 7, 42, null, 50, 87, 77]
+        list.remove(2);
+        System.out.println(list); //[5, 7, null, 50, 87, 77]
+
+        // Создание коллекции только для чтения
+        // List.copyOf()
+
 
     }
 }
+
