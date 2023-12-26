@@ -1,4 +1,4 @@
-package my.home.package12;
+package my.home.package12.threadpack;
 
 public class WalkThread extends Thread {
     public void run() {

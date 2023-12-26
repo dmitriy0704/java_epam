@@ -1,5 +1,8 @@
 package my.home.package12;
 
+import my.home.package12.threadpack.TalkThread;
+import my.home.package12.threadpack.WalkThread;
+
 public class Main {
     public static void main(String[] args) {
 
